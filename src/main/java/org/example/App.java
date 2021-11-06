@@ -1,9 +1,11 @@
 package org.example;
 
+import org.example.config.SpringConfig;
 import org.example.entity.User;
 import org.example.service.UserService;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 
 import java.util.Date;
 
@@ -12,10 +14,10 @@ import java.util.Date;
  */
 public class App {
     public static void main(String[] args) {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring/applicationContext.xml");
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringConfig.class);
         UserService bean = applicationContext.getBean(UserService.class);
         User user = new User();
-        user.setName("许七安");
+        user.setName("王腾");
         user.setPassword("123456");
         user.setSex("man");
         user.setAge(17);
